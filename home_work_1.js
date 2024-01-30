@@ -22,7 +22,7 @@ let str2 = 'asd'
 let num = Object(11);
 let num2 =  Number(3);
 let num3 = 1
-const numESistemOfNumber = 0o23
+let numESistemOfNumber = 0o23
 
 let bul = Object(false)
 let bul1 = Boolean(true)
@@ -41,7 +41,6 @@ let nul2 = null
 
 let und = Object(undefined)
 let und1 = undefined
-let und2 = undefined
 
 let bigInt = Object(11231232n)
 let bigInt2 = BigInt(1)
