@@ -46,10 +46,9 @@ class PersonThree extends Person {
 // БОНУС:
 // 1) Написать функцию, которая вернет массив с первой парой чисел, сумма которых равна total:
 
-// arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// total = 13;
-arr = [1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15];
-total = 7;
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+total = 13;
+
 //result = [4, 9]
 
 //Сложность О(N^2)
@@ -65,7 +64,7 @@ const firstSum = (arr, total) => {
   }
 };
 
-// //Бинарная O(log N)
+// //Бинарная O(log N) (попытка оптимизировать цикл)
 // const firstSumBinary = (arr, total) => {
 //   let start = 0;
 //   let end = arr.length;
@@ -85,6 +84,6 @@ const firstSum = (arr, total) => {
 // };
 
 console.log(firstSum(arr, total));
-console.log(firstSumBinary(arr, total));
+// console.log(firstSumBinary(arr, total));
 // 2) Какая сложность у вашего алгоритма ?
 // O(log N^2)
