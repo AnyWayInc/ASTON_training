@@ -17,13 +17,10 @@ Object.prototype.logInfo = () => {
 
 // 4) Создать класс PersonThree c get и set для поля name и конструктором, сделать класс наследник от класса Person.
 
-class PersonThree {
+class Person {
   constructor(name){
     this.name = name;
   }
-  get(){}
-
-  set(){  }
 }
 
 class PersonThree extends Person {
