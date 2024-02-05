@@ -78,9 +78,10 @@ getIndexOfArray(arr)
 Promise с содержимым страницы или вызывает reject */
 
 function fetchUrl(url){
-  fetch(url).then(()=> {
+  fetch(url).then((response)=> {
     let i = 0
-    const interval = setInterval(i++,0)
+    const interval = setInterval(()=>{i++
+    return response},0)
   }).catch((err)=>{
     console.log(err)})
 }
