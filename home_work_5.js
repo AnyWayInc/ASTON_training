@@ -76,6 +76,15 @@ getIndexOfArray(arr)
 /* Необходимо реализовать функцию fetchUrl, которая будет использоваться следующим образом.
 Внутри fetchUrl можно использовать условный метод fetch, который просто возвращает
 Promise с содержимым страницы или вызывает reject */
+
+function fetchUrl(url){
+  fetch(url).then(()=> {
+    let i = 0
+    const interval = setInterval(i++,0)
+  }).catch((err)=>{
+    console.log(err)})
+}
+
 // fetchUrl('https://google/com&#39;)
 // .then(...)
 // .catch(...) // сatch должен сработать только после 5 неудачных попыток
