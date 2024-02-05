@@ -57,6 +57,7 @@
 
 let arr = [10, 12, 15, 21]
 
+//Реализация через setInterval 
 async function getIndexOfArray(arr){
   let i = 0
   let interval = setInterval(function(){
@@ -65,6 +66,13 @@ async function getIndexOfArray(arr){
     if(i>= arr.length){clearInterval(interval)}
   },1800)
 }
+
+//Реализация через setTimeout 
+async function getIdexArray (arr){
+  for (let i = 0; i < arr.length; i++) {
+    setTimeout(() => console.log(i), 3000 * (i + 1));
+  }
+};
 
 getIndexOfArray(arr)
 
