@@ -74,7 +74,7 @@ async function getIdexArray (arr){
   }
 };
 
-getIndexOfArray(arr)
+// getIndexOfArray(arr)
 
 // 4) Прочитать про Top Level Await (можно ли использовать await вне функции async)
 
@@ -85,7 +85,7 @@ getIndexOfArray(arr)
 Внутри fetchUrl можно использовать условный метод fetch, который просто возвращает
 Promise с содержимым страницы или вызывает reject */
 
-function fetchUrl(url){
+function fetchUrlPromise(url){
   fetch(url).then((data)=> {
     let i = 0
     let interval = setInterval(async ()=>{
@@ -96,7 +96,24 @@ function fetchUrl(url){
     console.log(err)})
 }
 
-// fetchUrl('https://google/com&#39;)
+async function fetchUrl(url, connect = 4){
+  console.log(connect);
+  try {
+    const response = await fetch(url);
+    const json = await response.json();
+    return response.ok ? json : Promise.reject(json);
+  } catch (err) {
+    return connect > 0
+      ? fetchUrl(url, connect - 1)
+      : Promise.reject(
+          `Код ошибки: ${err?.status || 'нет данных'}. ${
+            err?.message || 'Неизвестная ошибка'
+          }`
+        );
+  }
+}
+
+fetchUrl('https://google/com&#39')
 // .then(...)
 // .catch(...) // сatch должен сработать только после 5 неудачных попыток
 // получить содержимое страницы внутри fetchUrl
