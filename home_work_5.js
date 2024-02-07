@@ -86,7 +86,7 @@ async function getIdexArray (arr){
 Promise с содержимым страницы или вызывает reject */
 
 async function fetchUrlPromise(url){
-  for (let n = 0; n < 5; n++) {
+  for (let i = 0; i < 5; i++) {
     try {
       return await fetch(url)
     } catch (err) { }
