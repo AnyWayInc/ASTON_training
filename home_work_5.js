@@ -85,32 +85,13 @@ async function getIdexArray (arr){
 Внутри fetchUrl можно использовать условный метод fetch, который просто возвращает
 Promise с содержимым страницы или вызывает reject */
 
-function fetchUrlPromise(url){
-  fetch(url).then((data)=> {
-    let i = 0
-    let interval = setInterval(async ()=>{
-      i++
-      if(i>= 5){clearInterval(interval)}
-      return await data.json()},0)
-  }).catch((err)=>{
-    console.log(err)})
-}
-
-async function fetchUrl(url, connect = 4){
-  console.log(connect);
-  try {
-    const response = await fetch(url);
-    const json = await response.json();
-    return response.ok ? json : Promise.reject(json);
-  } catch (err) {
-    return connect > 0
-      ? fetchUrl(url, connect - 1)
-      : Promise.reject(
-          `Код ошибки: ${err?.status || 'нет данных'}. ${
-            err?.message || 'Неизвестная ошибка'
-          }`
-        );
+async function fetchUrlPromise(url){
+  for (let n = 0; n < 5; n++) {
+    try {
+      return await fetch(url)
+    } catch (err) { }
   }
+  throw new Error('error')
 }
 
 fetchUrl('https://google/com&#39')
